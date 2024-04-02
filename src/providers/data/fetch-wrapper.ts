@@ -21,7 +21,7 @@ const customFetch = async (url: string, options: RequestInit) => {
   });
 };
 
-const getGraphQLErrors = (body: Record<"errors", GraphQLFormattedError[] | undefined>): Error => {
+const getGraphQLErrors = (body: Record<"errors", GraphQLFormattedError[] | undefined>): Error | null => {
   if (!body) {
     return {
       message: "Unknow error",
@@ -36,7 +36,7 @@ const getGraphQLErrors = (body: Record<"errors", GraphQLFormattedError[] | undef
 
     return {
       message: messages || JSON.stringify(errors),
-      statusCode: code || 500
+      statusCode: code || 500,
     };
   }
   return null;
@@ -50,10 +50,8 @@ export const fetchWrapper = async (url: string, options: RequestInit) => {
 
   const error = getGraphQLErrors(body);
 
-  if(error) {
-    throw error:
+  if (error) {
+    throw error;
   }
   return response;
-}
-
-
+};
