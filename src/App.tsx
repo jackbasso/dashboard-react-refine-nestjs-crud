@@ -10,6 +10,7 @@ import routerBindings, { DocumentTitleHandler, UnsavedChangesNotifier } from "@r
 import { App as AntdApp } from "antd";
 import { createClient } from "graphql-ws";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Home, ForgotPassword, Login, Register } from "./pages";
 
 function App() {
   return (
@@ -34,6 +35,10 @@ function App() {
             >
               <Routes>
                 <Route index element={<WelcomePage />} />
+                <Route index element={<Home />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/login" element={<Login />} />
               </Routes>
               <RefineKbar />
               <UnsavedChangesNotifier />
