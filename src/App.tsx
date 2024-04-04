@@ -8,7 +8,6 @@ import "@refinedev/antd/dist/reset.css";
 import { authProvider, dataProvider, liveProvider } from "./providers";
 import routerBindings, { DocumentTitleHandler, UnsavedChangesNotifier } from "@refinedev/react-router-v6";
 import { App as AntdApp } from "antd";
-import { createClient } from "graphql-ws";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home, ForgotPassword, Login, Register } from "./pages";
 
